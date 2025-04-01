@@ -1,5 +1,18 @@
+let rng = new Math.seedrandom("default-seed"); // Default PRNG Seed
+
+function setSeed(seed) {
+    rng = new Math.seedrandom(seed); // Set a new PRNG seed
+}
+
+function applySeed() {
+    let userSeed = document.getElementById('seed').value;
+    if (userSeed) {
+        setSeed(userSeed);
+    }
+}
+
 function getRandomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.floor(rng() * (max - min + 1)) + min;
 }
 
 function generateQuestion() {
@@ -19,7 +32,7 @@ function generateQuestion() {
 
     const num1 = getRandomNumber(min, max);
     const num2 = getRandomNumber(min, max);
-    const operator = operators[Math.floor(Math.random() * operators.length)];
+    const operator = operators[Math.floor(rng() * operators.length)];
 
     let question = `${num1} ${operator} ${num2}`;
     document.getElementById('question').innerText = question;
