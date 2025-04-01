@@ -5,15 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Randomised Maths Game</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script> <!-- PRNG Library -->
 </head>
 <body>
     <h1>Maths Game</h1>
+
+    <label for="seed">Set Seed:</label>
+    <input type="text" id="seed" placeholder="Enter seed">
+    <button onclick="applySeed()">Apply Seed</button>
+
+    <br>
+
     <label for="min">Min Number:</label>
     <input type="number" id="min" value="1">
-    
+
     <label for="max">Max Number:</label>
     <input type="number" id="max" value="10">
-    
+
     <br>
 
     <label><input type="checkbox" id="add" checked> Addition (+)</label>
