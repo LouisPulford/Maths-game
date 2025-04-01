@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     padding: 20px;
+    background-color: #f4f4f4;
 }
 
 input, button {
@@ -12,4 +13,22 @@ input, button {
 
 h1, h2 {
     color: #333;
+}
+
+button {
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #005f73;
+}
+
+#result {
+    font-weight: bold;
+    font-size: 18px;
 }
