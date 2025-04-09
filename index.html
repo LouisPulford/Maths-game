@@ -10,34 +10,29 @@
 <body>
   <div class="container">
     <h1>Randomised Maths Game</h1>
-    <p id="scoreDisplay">Score: 0</p>
-
+    
     <div class="settings">
-      <label>Min:
-        <input type="number" id="min" value="1" />
-      </label>
-      <label>Max:
-        <input type="number" id="max" value="10" />
-      </label>
-      <label>Seed (optional):
-        <input type="text" id="seed" placeholder="e.g. class1" />
-      </label>
+      <label>Min: <input type="number" id="min" value="1" /></label>
+      <label>Max: <input type="number" id="max" value="10" /></label>
+      <label>Seed: <input type="text" id="seed" placeholder="Optional for reproducibility" /></label>
+      <label><input type="checkbox" id="randomizeTime"> Add randomness</label>
 
-      <div class="operators">
-        <label><input type="checkbox" id="add" checked> +</label>
-        <label><input type="checkbox" id="subtract" checked> −</label>
-        <label><input type="checkbox" id="multiply" checked> ×</label>
-        <label><input type="checkbox" id="divide" checked> ÷</label>
+      <div>
+        <label><input type="checkbox" id="add" checked /> +</label>
+        <label><input type="checkbox" id="subtract" checked /> −</label>
+        <label><input type="checkbox" id="multiply" checked /> ×</label>
+        <label><input type="checkbox" id="divide" checked /> ÷</label>
       </div>
 
       <button onclick="generateQuestion()">Generate Question</button>
     </div>
 
-    <div class="question-area">
+    <div class="game">
       <p id="question">Click "Generate Question" to begin</p>
-      <input type="text" id="answer" placeholder="Enter answer" />
+      <input type="text" id="answer" placeholder="Your answer" />
       <button onclick="checkAnswer()">Submit</button>
       <p id="feedback"></p>
+      <p id="scoreDisplay">Score: 0</p>
     </div>
   </div>
 
