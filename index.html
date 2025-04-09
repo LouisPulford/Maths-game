@@ -1,45 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Randomised Maths Game</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script> <!-- PRNG Library -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Randomised Maths Game</title>
+  <!-- Link to the stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- Seedrandom library for reproducible random numbers -->
+  <script src="https://cdn.jsdelivr.net/npm/seedrandom"></script>
 </head>
 <body>
-    <h1>Maths Game</h1>
+  <div class="container">
+    <h1>Randomised Maths Game</h1>
 
-    <label for="seed">Set Seed:</label>
-    <input type="text" id="seed" placeholder="Enter seed">
-    <button onclick="applySeed()">Apply Seed</button>
+    <!-- Configuration Inputs -->
+    <div class="settings">
+      <label>
+        Min Number:
+        <input type="number" id="min" value="1" />
+      </label>
+      <label>
+        Max Number:
+        <input type="number" id="max" value="10" />
+      </label>
+      <label>
+        Seed (optional):
+        <input type="text" id="seed" placeholder="Enter a seed" />
+      </label>
 
-    <br>
+      <!-- Operator checkboxes -->
+      <div>
+        <label><input type="checkbox" id="add" checked /> +</label>
+        <label><input type="checkbox" id="subtract" checked /> −</label>
+        <label><input type="checkbox" id="multiply" checked /> ×</label>
+        <label><input type="checkbox" id="divide" checked /> ÷</label>
+      </div>
 
-    <label for="min">Min Number:</label>
-    <input type="number" id="min" value="1">
+      <!-- Button to generate new question -->
+      <button onclick="generateQuestion()">Generate Question</button>
+    </div>
 
-    <label for="max">Max Number:</label>
-    <input type="number" id="max" value="10">
+    <!-- Area to show the question and collect user input -->
+    <div class="question-area">
+      <p id="question"></p>
+      <input type="number" id="answer" placeholder="Enter your answer" />
+      <button onclick="checkAnswer()">Submit</button>
+      <p id="feedback"></p>
+    </div>
+  </div>
 
-    <br>
-
-    <label><input type="checkbox" id="add" checked> Addition (+)</label>
-    <label><input type="checkbox" id="subtract" checked> Subtraction (-)</label>
-    <label><input type="checkbox" id="multiply" checked> Multiplication (×)</label>
-    <label><input type="checkbox" id="divide" checked> Division (÷)</label>
-
-    <br>
-
-    <button onclick="generateQuestion()">Generate Question</button>
-
-    <h2 id="question">Press the button to start!</h2>
-
-    <input type="number" id="answer" placeholder="Enter answer">
-    <button onclick="checkAnswer()">Submit</button>
-
-    <p id="result"></p>
-
-    <script src="script.js"></script>
+  <!-- Link to JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
