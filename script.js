@@ -1,6 +1,6 @@
 let score = 0;
 let correctAnswer = null;
-let answered = false; // flag to prevent resubmission
+let questionAnswered = false;
 
 function getRandom(rng, min, max) {
   return Math.floor(rng() * (max - min + 1)) + min;
@@ -9,9 +9,11 @@ function getRandom(rng, min, max) {
 function generateQuestion() {
   const min = parseInt(document.getElementById("min").value);
   const max = parseInt(document.getElementById("max").value);
-  const seed = document.getElementById("seed").value.trim();
+  const seedInput = document.getElementById("seed").value.trim();
 
-  const rng = seed ? new Math.seedrandom(seed + Date.now()) : new Math.seedrandom();
+  const rng = seedInput
+    ? new Math.seedrandom(seedInput + Date.now())
+    : new Math.seedrandom();
 
   const operators = [];
   if (document.getElementById("add").checked) operators.push("+");
@@ -25,7 +27,7 @@ function generateQuestion() {
   }
 
   const num1 = getRandom(rng, min, max);
-  const num2 = getRandom(rng, min, max) || 1; // prevent division by zero
+  const num2 = getRandom(rng, min, max) || 1; // prevent divide by zero
   const operator = operators[getRandom(rng, 0, operators.length - 1)];
 
   let questionText = `${num1} ${operator} ${num2}`;
@@ -39,15 +41,15 @@ function generateQuestion() {
   }
 
   document.getElementById("question").innerText = questionText;
-  document.getElementById("feedback").innerText = "";
   document.getElementById("answer").value = "";
+  document.getElementById("feedback").innerText = "";
 
   correctAnswer = answer;
-  answered = false;
+  questionAnswered = false;
 }
 
 function checkAnswer() {
-  if (answered || correctAnswer === null) return;
+  if (questionAnswered || correctAnswer === null) return;
 
   const userAnswer = parseFloat(document.getElementById("answer").value);
   const feedback = document.getElementById("feedback");
@@ -68,6 +70,6 @@ function checkAnswer() {
   }
 
   document.getElementById("scoreDisplay").innerText = `Score: ${score}`;
-  answered = true;
-  correctAnswer = null; // invalidate after use
+  questionAnswered = true;
+  correctAnswer = null;
 }
