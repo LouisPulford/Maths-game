@@ -1,67 +1,53 @@
-let rng = new Math.seedrandom("default-seed"); // Default PRNG Seed
-
-function setSeed(seed) {
-    rng = new Math.seedrandom(seed); // Set a new PRNG seed
+/* General page styling */
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f6ff;
+  padding: 2rem;
+  text-align: center;
 }
 
-function applySeed() {
-    let userSeed = document.getElementById('seed').value;
-    if (userSeed) {
-        setSeed(userSeed);
-    }
+/* Centering the container */
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-function getRandomNumber(min, max) {
-    return Math.floor(rng() * (max - min + 1)) + min;
+/* Question and feedback styling */
+#question {
+  font-size: 1.5rem;
+  margin: 1rem 0;
 }
 
-function generateQuestion() {
-    const min = parseInt(document.getElementById('min').value);
-    const max = parseInt(document.getElementById('max').value);
-
-    let operators = [];
-    if (document.getElementById('add').checked) operators.push('+');
-    if (document.getElementById('subtract').checked) operators.push('-');
-    if (document.getElementById('multiply').checked) operators.push('×');
-    if (document.getElementById('divide').checked) operators.push('÷');
-
-    if (operators.length === 0) {
-        alert('Please select at least one operator.');
-        return;
-    }
-
-    const num1 = getRandomNumber(min, max);
-    const num2 = getRandomNumber(min, max);
-    const operator = operators[Math.floor(rng() * operators.length)];
-
-    let question = `${num1} ${operator} ${num2}`;
-    document.getElementById('question').innerText = question;
-    document.getElementById('answer').value = '';
-    document.getElementById('result').innerText = '';
+#feedback {
+  font-weight: bold;
+  margin-top: 1rem;
 }
 
-function checkAnswer() {
-    const question = document.getElementById('question').innerText;
-    const userAnswer = parseFloat(document.getElementById('answer').value);
-
-    if (!question.includes(' ')) {
-        alert('Please generate a question first!');
-        return;
-    }
-
-    const [num1, operator, num2] = question.split(' ');
-    let correctAnswer;
-
-    switch (operator) {
-        case '+': correctAnswer = parseFloat(num1) + parseFloat(num2); break;
-        case '-': correctAnswer = parseFloat(num1) - parseFloat(num2); break;
-        case '×': correctAnswer = parseFloat(num1) * parseFloat(num2); break;
-        case '÷': correctAnswer = parseFloat(num1) / parseFloat(num2); break;
-    }
-
-    if (userAnswer === correctAnswer) {
-        document.getElementById('result').innerText = '✅ Correct!';
-    } else {
-        document.getElementById('result').innerText = `❌ Wrong! Correct answer: ${correctAnswer}`;
-    }
+/* Inputs and buttons */
+input[type="number"],
+input[type="text"] {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin: 0.5rem;
+  width: 120px;
 }
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+  background-color: #005eff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0047cc;
+}
+
