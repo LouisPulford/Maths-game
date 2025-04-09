@@ -5,42 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Randomised Maths Game</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/seedrandom"></script>
+  <script src="https://cdn.jsdelivr.net/npm/seedrandom@3.0.5/seedrandom.min.js"></script>
 </head>
 <body>
   <div class="container">
     <h1>Randomised Maths Game</h1>
-    <!-- Score Display -->
     <p id="scoreDisplay">Score: 0</p>
 
-    <!-- Settings Section -->
     <div class="settings">
-      <label>
-        Min Number:
+      <label>Min Number:
         <input type="number" id="min" value="1" />
       </label>
-      <label>
-        Max Number:
+      <label>Max Number:
         <input type="number" id="max" value="10" />
       </label>
-      <label>
-        Seed (optional):
+      <label>Seed (optional):
         <input type="text" id="seed" placeholder="Enter a seed" />
       </label>
 
-      <!-- Operator Selection -->
-      <div>
+      <div class="operators">
         <label><input type="checkbox" id="add" checked /> +</label>
         <label><input type="checkbox" id="subtract" checked /> −</label>
         <label><input type="checkbox" id="multiply" checked /> ×</label>
         <label><input type="checkbox" id="divide" checked /> ÷</label>
       </div>
 
-      <!-- Generate Question Button -->
       <button onclick="generateQuestion()">Generate Question</button>
     </div>
 
-    <!-- Question and Answer Section -->
     <div class="question-area">
       <p id="question"></p>
       <input type="number" id="answer" placeholder="Enter your answer" />
