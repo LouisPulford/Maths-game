@@ -1,8 +1,11 @@
 let correctAnswer = null;
 let score = 0;
 let questionAnswered = false;
+let rng = null; // global persistent PRNG
+let lastSeed = "";
+let lastUseTime = false;
 
-function getRandom(min, max, rng) {
+function getRandom(min, max) {
   return Math.floor(rng() * (max - min + 1)) + min;
 }
 
@@ -23,13 +26,17 @@ function generateQuestion() {
     return;
   }
 
-  // Setup PRNG with or without timestamp
-  const seed = seedInput + (useTime ? Date.now().toString() : "");
-  const rng = seedInput ? new Math.seedrandom(seed) : new Math.seedrandom();
+  // Only reinitialize RNG if seed or time option changed
+  if (seedInput + useTime !== lastSeed + lastUseTime || rng === null) {
+    const seed = seedInput + (useTime ? Date.now().toString() : "");
+    rng = seedInput ? new Math.seedrandom(seed) : new Math.seedrandom();
+    lastSeed = seedInput;
+    lastUseTime = useTime;
+  }
 
-  const num1 = getRandom(min, max, rng);
-  const num2 = getRandom(min, max, rng) || 1; // avoid zero for division
-  const operator = operators[getRandom(0, operators.length - 1, rng)];
+  const num1 = getRandom(min, max);
+  const num2 = getRandom(min, max) || 1;
+  const operator = operators[getRandom(0, operators.length - 1)];
 
   let questionText = `${num1} ${operator} ${num2}`;
   switch (operator) {
