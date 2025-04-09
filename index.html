@@ -4,16 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Randomised Maths Game</title>
-  <!-- Link to the stylesheet -->
   <link rel="stylesheet" href="style.css" />
-  <!-- Seedrandom library for reproducible random numbers -->
   <script src="https://cdn.jsdelivr.net/npm/seedrandom"></script>
 </head>
 <body>
   <div class="container">
     <h1>Randomised Maths Game</h1>
+    <!-- Score Display -->
+    <p id="scoreDisplay">Score: 0</p>
 
-    <!-- Configuration Inputs -->
+    <!-- Settings Section -->
     <div class="settings">
       <label>
         Min Number:
@@ -28,7 +28,7 @@
         <input type="text" id="seed" placeholder="Enter a seed" />
       </label>
 
-      <!-- Operator checkboxes -->
+      <!-- Operator Selection -->
       <div>
         <label><input type="checkbox" id="add" checked /> +</label>
         <label><input type="checkbox" id="subtract" checked /> −</label>
@@ -36,11 +36,11 @@
         <label><input type="checkbox" id="divide" checked /> ÷</label>
       </div>
 
-      <!-- Button to generate new question -->
+      <!-- Generate Question Button -->
       <button onclick="generateQuestion()">Generate Question</button>
     </div>
 
-    <!-- Area to show the question and collect user input -->
+    <!-- Question and Answer Section -->
     <div class="question-area">
       <p id="question"></p>
       <input type="number" id="answer" placeholder="Enter your answer" />
@@ -49,7 +49,6 @@
     </div>
   </div>
 
-  <!-- Link to JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
