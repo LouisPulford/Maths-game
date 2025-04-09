@@ -13,29 +13,29 @@
     <p id="scoreDisplay">Score: 0</p>
 
     <div class="settings">
-      <label>Min Number:
+      <label>Min:
         <input type="number" id="min" value="1" />
       </label>
-      <label>Max Number:
+      <label>Max:
         <input type="number" id="max" value="10" />
       </label>
       <label>Seed (optional):
-        <input type="text" id="seed" placeholder="Enter a seed" />
+        <input type="text" id="seed" placeholder="e.g. class1" />
       </label>
 
       <div class="operators">
-        <label><input type="checkbox" id="add" checked /> +</label>
-        <label><input type="checkbox" id="subtract" checked /> −</label>
-        <label><input type="checkbox" id="multiply" checked /> ×</label>
-        <label><input type="checkbox" id="divide" checked /> ÷</label>
+        <label><input type="checkbox" id="add" checked> +</label>
+        <label><input type="checkbox" id="subtract" checked> −</label>
+        <label><input type="checkbox" id="multiply" checked> ×</label>
+        <label><input type="checkbox" id="divide" checked> ÷</label>
       </div>
 
       <button onclick="generateQuestion()">Generate Question</button>
     </div>
 
     <div class="question-area">
-      <p id="question"></p>
-      <input type="number" id="answer" placeholder="Enter your answer" />
+      <p id="question">Click "Generate Question" to begin</p>
+      <input type="text" id="answer" placeholder="Enter answer" />
       <button onclick="checkAnswer()">Submit</button>
       <p id="feedback"></p>
     </div>
