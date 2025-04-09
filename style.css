@@ -1,4 +1,4 @@
-/* General page styling */
+/* Basic page styling */
 body {
   font-family: Arial, sans-serif;
   background: #f2f6ff;
@@ -6,7 +6,7 @@ body {
   text-align: center;
 }
 
-/* Centering the container */
+/* Container styling */
 .container {
   max-width: 600px;
   margin: auto;
@@ -16,7 +16,20 @@ body {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Question and feedback styling */
+/* Headings and labels */
+h1 {
+  margin-bottom: 0.5rem;
+}
+
+/* Score display styling */
+#scoreDisplay {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #005eff;
+}
+
+/* Question styling */
 #question {
   font-size: 1.5rem;
   margin: 1rem 0;
